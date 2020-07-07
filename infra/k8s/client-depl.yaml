@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-client-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-client
+  template:
+    metadata:
+      labels:
+        app: blog-client
+    spec:
+      containers:
+        - name: blog-client
+          image: sebmaz93/blog-client
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-client-srv
+spec:
+  selector:
+    app: blog-client
+  type: ClusterIP
+  ports:
+    - name: blog-client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

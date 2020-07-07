@@ -7,7 +7,7 @@ export default () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    return await axios.get('http://localhost:4002/posts');
+    return await axios.get('http://posts.com/posts');
   };
 
   useEffect(() => {
