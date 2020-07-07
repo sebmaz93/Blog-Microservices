@@ -24,7 +24,7 @@ app.post('/posts', async (req, res) => {
   };
 
   try {
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
       type: 'PostCreated',
       data: {
         id,
@@ -44,6 +44,6 @@ app.post('/events', (req, res) => {
 });
 
 app.listen(4000, () => {
-  console.log('KUBERNETES');
+  console.log('LATEST 3:35');
   console.log('LISTENING on Port:', 4000);
 });
